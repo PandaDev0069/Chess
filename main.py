@@ -17,6 +17,13 @@ HIGHLIGHT = (186, 202, 68)
 SELECT = (246, 246, 130)
 VALID_MOVE = (100, 200, 100, 120)  # Semi-transparent green for valid moves
 
+# UI Constants
+VALID_MOVE_DOT_RADIUS = 15  # Small dot for empty squares
+VALID_MOVE_RING_RADIUS = 35  # Larger ring for capture moves
+STATUS_PADDING = 10
+STATUS_HEIGHT = 30
+STATUS_WIDTH_BASE = 250
+
 # Piece representation: uppercase = white, lowercase = black
 # K/k = King, Q/q = Queen, R/r = Rook, B/b = Bishop, N/n = Knight, P/p = Pawn
 INITIAL_BOARD = [
@@ -55,9 +62,6 @@ class ChessGame:
         
         # Track en passant
         self.en_passant_target = None  # (row, col) where en passant capture is possible
-        
-        # Move history for undo/game records
-        self.move_history = []
         
     def is_white_piece(self, piece):
         return piece.isupper()
@@ -439,7 +443,7 @@ class ChessGame:
                 # Draw a semi-transparent circle for valid moves
                 surface = pygame.Surface((SQUARE_SIZE, SQUARE_SIZE), pygame.SRCALPHA)
                 center = (SQUARE_SIZE // 2, SQUARE_SIZE // 2)
-                radius = 15 if self.board[move_row][move_col] == ' ' else 35
+                radius = VALID_MOVE_DOT_RADIUS if self.board[move_row][move_col] == ' ' else VALID_MOVE_RING_RADIUS
                 pygame.draw.circle(surface, VALID_MOVE, center, radius)
                 self.screen.blit(surface, (move_col * SQUARE_SIZE, move_row * SQUARE_SIZE))
     
@@ -477,7 +481,8 @@ class ChessGame:
         
         text = indicator_font.render(status_text, True, (255, 255, 255))
         # Draw a background rectangle
-        bg_rect = pygame.Rect(10, 10, max(250, text.get_width() + 20), 30)
+        bg_rect = pygame.Rect(STATUS_PADDING, STATUS_PADDING, 
+                             max(STATUS_WIDTH_BASE, text.get_width() + 20), STATUS_HEIGHT)
         pygame.draw.rect(self.screen, (0, 0, 0), bg_rect)
         
         # Highlight in red if in check
@@ -486,7 +491,7 @@ class ChessGame:
         else:
             pygame.draw.rect(self.screen, (100, 100, 100), bg_rect, 2)
         
-        self.screen.blit(text, (15, 15))
+        self.screen.blit(text, (STATUS_PADDING + 5, STATUS_PADDING + 5))
     
     def handle_click(self, pos):
         """Handle mouse click on the board"""
