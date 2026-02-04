@@ -4,7 +4,7 @@ Handles mouse input and player interactions.
 """
 
 from utils.constants import SQUARE_SIZE, ROWS, COLS
-from core.rules.legality import is_legal_move, get_all_legal_moves, is_checkmate, is_stalemate
+from core.rules.legality import get_all_legal_moves, is_checkmate, is_stalemate
 from core.rules.check import is_in_check
 from core.rules.special import can_castle, execute_castle, execute_en_passant, promote_pawn
 from core.pieces.pawn import can_en_passant
@@ -74,6 +74,12 @@ class InputHandler:
         if self.game_state.is_current_player_piece(to_row, to_col):
             self.selected_pos = (to_row, to_col)
             self.valid_moves = get_all_legal_moves(self.game_state, to_row, to_col)
+            
+            # Add castling if applicable for newly selected piece
+            new_piece = self.game_state.board.get_piece(to_row, to_col)
+            if new_piece.lower() == 'k':
+                self._add_castling_moves(to_row, to_col)
+            
             return True
         
         # Check if move is valid

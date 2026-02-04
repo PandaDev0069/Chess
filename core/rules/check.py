@@ -104,3 +104,28 @@ def would_be_in_check(board, from_row, from_col, to_row, to_col, color):
     
     # Check if king is in check after the move
     return is_in_check(board_copy, color)
+
+
+def would_be_in_check_en_passant(board, from_row, from_col, to_row, to_col, color):
+    """
+    Check if en passant move would result in check.
+    Special handling for en passant since captured pawn is on different square.
+    
+    Args:
+        board: Board object
+        from_row, from_col: Starting position of capturing pawn
+        to_row, to_col: Ending position (where pawn moves)
+        color: Color of the moving player
+    
+    Returns:
+        Boolean indicating if move would result in check
+    """
+    # Make a copy and simulate the en passant move
+    board_copy = board.copy()
+    board_copy.move_piece(from_row, from_col, to_row, to_col)
+    
+    # Remove the captured pawn (on the same row as the moving pawn, but at to_col)
+    board_copy.set_piece(from_row, to_col, ' ')
+    
+    # Check if king is in check after the move
+    return is_in_check(board_copy, color)

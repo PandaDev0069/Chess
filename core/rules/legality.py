@@ -3,7 +3,7 @@ Phase 2: Game Rules - Move Legality
 Validates if moves are legal according to chess rules.
 """
 
-from core.rules.check import would_be_in_check, is_in_check, is_square_attacked
+from core.rules.check import would_be_in_check, would_be_in_check_en_passant, is_in_check
 from core.pieces import pawn
 
 
@@ -74,7 +74,7 @@ def get_all_legal_moves(game_state, row, col):
         to_row, to_col = game_state.en_passant_target
         if pawn.can_en_passant(game_state.board, row, col, to_row, to_col, 
                                game_state.en_passant_target):
-            if not would_be_in_check(game_state.board, row, col, to_row, to_col, color):
+            if not would_be_in_check_en_passant(game_state.board, row, col, to_row, to_col, color):
                 legal_moves.append((to_row, to_col))
     
     return legal_moves

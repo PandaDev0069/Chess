@@ -3,7 +3,7 @@ Phase 1: Core Chess Logic - Pawn Movement
 Pure logic for pawn movement rules (no game state, no pygame).
 """
 
-from utils.constants import ROWS
+from utils.constants import ROWS, COLS
 
 
 def get_pawn_moves(board, from_row, from_col, color):
@@ -37,7 +37,7 @@ def get_pawn_moves(board, from_row, from_col, color):
     for col_offset in [-1, 1]:
         new_col = from_col + col_offset
         new_row = from_row + direction
-        if 0 <= new_row < ROWS and 0 <= new_col < ROWS:
+        if 0 <= new_row < ROWS and 0 <= new_col < COLS:
             target_piece = board.get_piece(new_row, new_col)
             if target_piece != ' ':
                 target_color = board.get_piece_color(new_row, new_col)

@@ -6,13 +6,13 @@ Tests that core logic works without pygame.
 # Test Phase 1: Core logic
 from core.board import Board
 from core.game_state import GameState
-from core.pieces import pawn, knight, king
-from core.pieces.sliding import get_bishop_moves, get_rook_moves, get_queen_moves
+from core.pieces import pawn, knight
+from core.pieces.sliding import get_bishop_moves, get_rook_moves
 
 # Test Phase 2: Rules
-from core.rules.check import is_in_check, is_square_attacked
-from core.rules.legality import is_checkmate, is_stalemate, has_any_legal_moves
-from core.rules.special import can_castle, promote_pawn
+from core.rules.check import is_in_check
+from core.rules.legality import has_any_legal_moves
+from core.rules.special import promote_pawn
 
 
 def test_board_basics():
@@ -146,7 +146,7 @@ def test_special_moves():
     print("  ✓ Castling rights tracking works")
     
     # Test en passant target
-    assert game_state.en_passant_target == None
+    assert game_state.en_passant_target is None
     print("  ✓ En passant tracking works")
     
     # Test pawn promotion detection

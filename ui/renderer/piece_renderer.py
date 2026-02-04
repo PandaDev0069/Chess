@@ -3,7 +3,6 @@ Phase 3: Pygame Visualization - Piece Renderer
 Renders chess pieces on the board.
 """
 
-import pygame
 from utils.constants import ROWS, COLS, SQUARE_SIZE, PIECE_SYMBOLS
 
 
