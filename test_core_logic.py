@@ -1,6 +1,9 @@
 """
-Test Core Chess Logic (Phase 1 & 2)
-Tests that core logic works without pygame.
+Chess Core Logic Tests
+
+Comprehensive test suite for chess game logic.
+Tests board operations, piece movements, game rules, and special moves.
+All tests run without pygame dependency.
 """
 
 # Test Phase 1: Core logic

@@ -1,6 +1,8 @@
 """
-Phase 3 & 4: Pygame Visualization - Highlight Renderer
-Draws highlights for selected pieces and valid moves.
+Chess UI - Highlight Renderer
+
+Renders visual highlights for selected pieces and valid moves.
+Displays game status including turn, check, and checkmate indicators.
 """
 
 import pygame

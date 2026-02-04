@@ -1,6 +1,8 @@
 """
-Phase 1: Core Chess Logic - King Movement
-Pure logic for king movement rules (including castling).
+Chess Piece Movement - King
+
+Implements movement rules for the king piece.
+Handles standard one-square moves in any direction.
 """
 
 from utils.constants import ROWS, COLS

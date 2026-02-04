@@ -1,6 +1,8 @@
 """
-Phase 3: Pygame Visualization - Piece Renderer
-Renders chess pieces on the board.
+Chess UI - Piece Renderer
+
+Renders chess pieces on the board using Unicode symbols.
+Displays pieces with appropriate colors for visual distinction.
 """
 
 from utils.constants import ROWS, COLS, SQUARE_SIZE, PIECE_SYMBOLS

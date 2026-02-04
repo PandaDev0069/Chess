@@ -1,6 +1,8 @@
 """
-Phase 3: Pygame Visualization - Board Renderer
-Draws the chess board.
+Chess UI - Board Renderer
+
+Renders the chess board using Pygame.
+Draws the 8x8 grid with alternating square colors.
 """
 
 import pygame

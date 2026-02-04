@@ -1,6 +1,8 @@
 """
-Phase 2: Game Rules - Move Legality
-Validates if moves are legal according to chess rules.
+Chess Rules Engine - Move Legality
+
+Validates whether moves are legal according to chess rules.
+Ensures moves don't expose the king to check and handles checkmate/stalemate detection.
 """
 
 from core.rules.check import would_be_in_check, would_be_in_check_en_passant, is_in_check

@@ -1,6 +1,8 @@
 """
-Phase 2: Game Rules - Check Detection
-Logic for detecting when a king is in check or under attack.
+Chess Rules Engine - Check Detection
+
+Implements check detection logic.
+Determines when a king is in check or if squares are under attack.
 """
 
 from core.pieces import pawn, knight, king

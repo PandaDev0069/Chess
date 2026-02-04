@@ -1,6 +1,8 @@
 """
-Phase 4: Player Interaction - Input Handler
-Handles mouse input and player interactions.
+Chess UI - Input Handler
+
+Handles user input and player interactions.
+Processes mouse clicks and delegates to game logic for move validation.
 """
 
 from utils.constants import SQUARE_SIZE, ROWS, COLS

@@ -1,6 +1,10 @@
 """
-Constants used throughout the chess game.
-Phase 1: Core constants
+Chess Game Constants
+
+Defines all constants used throughout the chess game including:
+- Board dimensions and initial setup
+- UI colors and sizes
+- Piece symbols and representations
 """
 
 # Board dimensions

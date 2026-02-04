@@ -1,6 +1,9 @@
 """
-Phase 1: Core Chess Logic - Board Module
-Board representation and basic operations (no pygame).
+Chess Board Representation
+
+Provides the chess board data structure and basic operations.
+Manages board state, piece positioning, and board queries.
+Pure Python implementation with no UI dependencies.
 """
 
 from utils.constants import ROWS, COLS, INITIAL_BOARD

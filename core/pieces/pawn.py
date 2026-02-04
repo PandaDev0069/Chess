@@ -1,6 +1,9 @@
 """
-Phase 1: Core Chess Logic - Pawn Movement
-Pure logic for pawn movement rules (no game state, no pygame).
+Chess Piece Movement - Pawn
+
+Implements movement rules for the pawn piece.
+Handles forward movement, initial two-square advance, and diagonal captures.
+Includes en passant and promotion detection.
 """
 
 from utils.constants import ROWS, COLS

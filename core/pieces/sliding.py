@@ -1,6 +1,8 @@
 """
-Phase 1: Core Chess Logic - Sliding Pieces (Bishop, Rook, Queen)
-Shared logic for pieces that move in straight lines.
+Chess Piece Movement - Sliding Pieces
+
+Implements shared movement logic for sliding pieces (Bishop, Rook, Queen).
+Provides generic sliding movement along specified directions with path obstruction checking.
 """
 
 from utils.constants import ROWS, COLS

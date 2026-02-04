@@ -1,6 +1,8 @@
 """
-Phase 1 & 2: Game State Management
-Manages the overall game state including turn system and move tracking.
+Chess Game State Management
+
+Manages overall game state including turn system, move tracking, and game flow.
+Coordinates between board state and game rules.
 """
 
 from core.board import Board

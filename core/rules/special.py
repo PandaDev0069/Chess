@@ -1,6 +1,8 @@
 """
-Phase 2: Game Rules - Special Moves
-Castling, en passant, and pawn promotion logic.
+Chess Rules Engine - Special Moves
+
+Implements special chess moves including castling, en passant, and pawn promotion.
+Handles the validation and execution of these advanced moves.
 """
 
 from core.rules.check import is_in_check, is_square_attacked

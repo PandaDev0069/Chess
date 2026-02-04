@@ -1,6 +1,8 @@
 """
-Phase 1: Core Chess Logic - Knight Movement
-Pure logic for knight movement rules.
+Chess Piece Movement - Knight
+
+Implements movement rules for the knight piece.
+Handles L-shaped movement (2+1 or 1+2 squares).
 """
 
 from utils.constants import ROWS, COLS
