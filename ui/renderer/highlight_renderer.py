@@ -6,7 +6,8 @@ Draws highlights for selected pieces and valid moves.
 import pygame
 from utils.constants import (
     SQUARE_SIZE, SELECT_COLOR, VALID_MOVE_COLOR,
-    VALID_MOVE_DOT_RADIUS, VALID_MOVE_RING_RADIUS
+    VALID_MOVE_DOT_RADIUS, VALID_MOVE_RING_RADIUS,
+    STATUS_PADDING, STATUS_HEIGHT, STATUS_WIDTH_BASE
 )
 
 
@@ -71,7 +72,6 @@ def draw_status_indicator(screen, game_state):
     text = font.render(status_text, True, (255, 255, 255))
     
     # Draw background rectangle
-    from utils.constants import STATUS_PADDING, STATUS_HEIGHT, STATUS_WIDTH_BASE
     bg_rect = pygame.Rect(
         STATUS_PADDING,
         STATUS_PADDING,

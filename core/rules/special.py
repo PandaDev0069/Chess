@@ -38,14 +38,17 @@ def can_castle(game_state, from_row, from_col, to_col):
         if color == 'black' and game_state.black_rook_right_moved:
             return False
         
-        # Check if path is clear and not through check
+        # Check if path is clear
         for col in range(from_col + 1, rook_col):
             if not game_state.board.is_empty(from_row, col):
                 return False
-            # King cannot pass through check
-            opponent = 'black' if color == 'white' else 'white'
-            if is_square_attacked(game_state.board, from_row, col, opponent):
-                return False
+        
+        # King cannot pass through check
+        opponent = 'black' if color == 'white' else 'white'
+        for col in range(from_col, to_col + 1):
+            if col != from_col:
+                if is_square_attacked(game_state.board, from_row, col, opponent):
+                    return False
     else:  # Queenside castling
         rook_col = 0
         if color == 'white' and game_state.white_rook_left_moved:
@@ -58,10 +61,10 @@ def can_castle(game_state, from_row, from_col, to_col):
             if not game_state.board.is_empty(from_row, col):
                 return False
         
-        # King cannot pass through check (check king's path only)
-        for col in range(min(from_col, to_col), max(from_col, to_col) + 1):
+        # King cannot pass through check
+        opponent = 'black' if color == 'white' else 'white'
+        for col in range(to_col, from_col + 1):
             if col != from_col:
-                opponent = 'black' if color == 'white' else 'white'
                 if is_square_attacked(game_state.board, from_row, col, opponent):
                     return False
     
