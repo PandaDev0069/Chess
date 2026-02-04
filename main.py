@@ -51,9 +51,19 @@ class ChessGame:
         return None
     
     def is_valid_move(self, from_row, from_col, to_row, to_col):
-        """Basic move validation for each piece type"""
+        """Basic move validation for each piece type
+        
+        Note: This validates piece movement rules but does NOT check for:
+        - Check/checkmate conditions
+        - Moves that would put own king in check
+        - Castling, en passant, or promotion
+        """
         piece = self.board[from_row][from_col].lower()
         target = self.board[to_row][to_col]
+        
+        # Can't move to the same square
+        if from_row == to_row and from_col == to_col:
+            return False
         
         # Can't capture own piece
         if self.current_turn == 'white' and self.is_white_piece(target):
@@ -163,6 +173,7 @@ class ChessGame:
                         'k': '♚', 'q': '♛', 'r': '♜', 'b': '♝', 'n': '♞', 'p': '♟'
                     }
                     symbol = symbols.get(piece, piece)
+                    # White pieces rendered in black for contrast, black pieces in white
                     text = self.font.render(symbol, True, (0, 0, 0) if self.is_white_piece(piece) else (255, 255, 255))
                     text_rect = text.get_rect(center=(col * SQUARE_SIZE + SQUARE_SIZE // 2, 
                                                       row * SQUARE_SIZE + SQUARE_SIZE // 2))
