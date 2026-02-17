@@ -239,7 +239,6 @@ while is_running:
             x= event.pos[0] // 120 - 3  # -3 for white space in sides
             y = event.pos[1] // 120
             click_coords = (x, y)
-            print(click_coords)
 
             if turn_step <= 1:
                 if click_coords in white_locations:
